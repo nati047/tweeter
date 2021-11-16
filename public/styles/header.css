@@ -8,4 +8,5 @@ header {
   background-color: #161436;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   position: relative;
+  z-index: -1;
 }

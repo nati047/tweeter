@@ -22,8 +22,8 @@ section.new-tweet {
 }
 output.counter {
   font-family: 'Bungee', sans-serif;
-
 }
+
 button {
   font-family: 'Bungee', sans-serif;
   background-color: #4056A1;
@@ -34,4 +34,10 @@ div.tweet-and-counter {
   display: flex;
   justify-content: space-between;
   margin-top: 4px;
+}
+
+output.negative-val {
+  color: red;
+  font-family: 'Bungee', sans-serif;
+
 }
