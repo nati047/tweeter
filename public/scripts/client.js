@@ -21,7 +21,8 @@ $(document).ready(function () {
       <i class="fa fa-heart" aria-hidden="true"></i>
       </div>
     </footer>`);
-    const $footTimeStamp = $(`<div class="time-stamp">${tweetObj["created_at"]}</div>`)
+    const timeAgo = timeago.format(tweetObj["created_at"]);
+    const $footTimeStamp = $(`<div class="time-stamp">${timeAgo}</div>`)
 
     $tweet.append($header);
     $tweet.append($paragraph);
