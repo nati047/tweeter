@@ -33,20 +33,39 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants!"
-    },
-    "created_at": 1461116232227
-  }
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
 
-  const $tweets = createTweetElement(tweetData);
-  $(".new-tweet").append($tweets);
+const renderTweets = function(tweetsArr) {
+  for( let tweet of tweetsArr) {
+    let $tweetArticle = createTweetElement(tweet);
+    $(".new-tweet").append($tweetArticle);
+  }
+};
+
+renderTweets(data);
 });
 
 
