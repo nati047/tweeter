@@ -6,7 +6,7 @@ nav {
   color: #FFFFFF;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
 }
@@ -17,7 +17,7 @@ nav span {
   font-family: 'Bungee', sans-serif;
   margin: 1.5em;
 }
-.left-content{
+.top-right-content{
   display: flex;
   margin: 1.5em;
   flex-direction: column;
@@ -26,6 +26,6 @@ nav span {
 
 
 
-.left-content .fa {
+.top-right-content .fa {
   color: red;
 }

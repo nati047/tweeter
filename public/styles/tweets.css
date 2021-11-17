@@ -23,12 +23,12 @@ article p {
 }
 
 .tweet-header {
-  border: chartreuse solid 1px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+
+
 
 h4.user-name {
   color: #b3bec9;
@@ -37,10 +37,8 @@ h4.user-name {
 
 .foot-text {
   display: flex;
-  border: tomato solid 0.5px;
   justify-content: space-between;
   font-size: smaller;
-  
 }
 
 .icons {

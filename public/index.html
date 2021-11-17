@@ -32,8 +32,8 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
-      <div class="left-content">
+      <span>Tweeter</span>
+      <div class="top-right-content">
         <div><strong>Write&nbsp;</strong>a new tweet</div>
         <i class="fa fa-angle-double-down"></i>
       </div>
@@ -51,7 +51,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="new-tweet" id="tweets-section">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text"><strong>What are you humming about?</label>
@@ -91,9 +91,9 @@
             </div>
           </footer>
         </article>
-
       </section>
    </main>
+   
   </body>
 </html>
 
