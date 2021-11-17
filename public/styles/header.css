@@ -1,12 +1,12 @@
-header {
+.main-header {
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  background-color: #161436;
   display: flex;
   height: 400px;
   width: 100%; 
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #161436;
-  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   position: relative;
-  z-index: -1;
+  
 }
