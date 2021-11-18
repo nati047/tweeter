@@ -40,6 +40,7 @@ $(document).ready(function () {
 const renderTweets = function(tweetsArr) {
   for( let tweet of tweetsArr) {
     let $tweetArticle = createTweetElement(tweet);
+  
     $("#tweet-articles-container").prepend($tweetArticle);
   }
 };
@@ -66,7 +67,13 @@ $form.on("submit", (event) =>{
     .then(() => { $.ajax("/tweets", {
       method: "GET"
     }).then(function(data) {
-      renderTweets(data);
+      $.ajax("/tweets", {
+        method: "GET"
+      }).then(function(data) {
+        $("#tweet-articles-container").empty();
+        renderTweets(data);
+      })
+    
     })
     $("#tweet-text").val("")
 
