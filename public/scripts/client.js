@@ -35,74 +35,70 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  
-
-const renderTweets = function(tweetsArr) {
-  for( let tweet of tweetsArr) {
-    let $tweetArticle = createTweetElement(tweet);
-  
-    $("#tweet-articles-container").prepend($tweetArticle);
-  }
-};
 
 
+  const renderTweets = function (tweetsArr) {
+    for (let tweet of tweetsArr) {
+      let $tweetArticle = createTweetElement(tweet);
 
-const $form = $("#submit-form");
-$form.on("submit", (event) =>{
-  event.preventDefault();
-  const $userInput = $("#tweet-text").val();
-  if(!$userInput) {
-    alert("Tweet too short: Type something to tweet!");
-  }
-  else if($userInput.length > 140) {
-    alert("Teweet too long: try less words!");
-  }
-  else {
-    const $newTweet = $("#submit-form").serialize();
-    $.ajax( "/tweets" ,{
-    method: "POST", 
-    data: $newTweet
+      $("#tweet-articles-container").prepend($tweetArticle);
+    }
+  };
+
+
+
+  const $form = $("#submit-form");
+  $form.on("submit", (event) => {
+    event.preventDefault();
+    $("#error-par").remove();           // remove previous error message p tag with id error-par
+    const $userInput = $("#tweet-text").val();
+    const $errorParagraph = $(`<p id="error-par"><i class="fa fa-warning"></i></p>`);
+    if (!$userInput) {   // dont forget to validate white space input 
+      const errorMessage = "Type something to post!";
+      $errorParagraph.append(errorMessage);
+      $("#tweets-section").prepend($errorParagraph);
+      $("#error-par").hide();
+      $("#error-par").slideDown(1200);
+    }
     
-    })
-    .then(() => { $.ajax("/tweets", {
-      method: "GET"
-    }).then(function(data) {
+    else if ($userInput.length > 140) {
+      const errorMessage = "No more than 140 charachters allowed for tweets!";
+      $errorParagraph.append(errorMessage);
+      $("#tweets-section").prepend($errorParagraph);
+      $("#error-par").hide();
+      $("#error-par").slideDown(1200);
+    }
+
+    else {
+      const $newTweet = $("#submit-form").serialize();
       $.ajax("/tweets", {
-        method: "GET"
-      }).then(function(data) {
-        $("#tweet-articles-container").empty();
-        renderTweets(data);
-      })
-    
-    })
-    $("#tweet-text").val("")
+        method: "POST",
+        data: $newTweet
+      }).then(() => {
+          $.ajax("/tweets", {method: "GET"})
+          .then(function (data) {
+            $.ajax("/tweets", {
+              method: "GET"
+            }).then(function (data) {
+              $("#tweet-articles-container").empty();
+              renderTweets(data);
+            })
+          })
+          $("#tweet-text").val("")
+        });
+        
+    }
+     
 
   });
 
-
-  let tweetData = [ {
-    "user": {
-      "name": "Dead Pool",
-      "avatars": "/images/deadpool.png",
-      "handle": "@dead"
-    },
-    "content": {
-      "text": ""
-    },
-    "created_at": 1637029335355
-  }]
-
- }
-
-});
-
-const loadTweets = function() {
-  $.ajax("/tweets", {
-    method: "GET"
-  }).then(function(data) {
-    renderTweets(data);
-  })
-}();
+  const loadTweets = function () {
+    $.ajax("/tweets", {
+      method: "GET"
+    }).then(function (data) {
+      renderTweets(data);
+    })
+  }();
 
 
 });

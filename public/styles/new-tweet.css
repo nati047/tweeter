@@ -36,3 +36,11 @@ output.negative-val {
   color: red;
   font-family: 'Bungee', sans-serif;
 }
+
+#error-par {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  font-size: 36px;
+  padding: 10px;
+  width: 450px;
+}
