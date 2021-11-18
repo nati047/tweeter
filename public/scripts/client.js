@@ -47,21 +47,25 @@ const renderTweets = function(tweetsArr) {
 const $form = $("#submit-form");
 $form.on("submit", (event) =>{
   event.preventDefault();
-  
-  const $newTweet = $("#submit-form").serialize();
-  $.ajax( "/tweets" ,{
-   method: "POST", 
-   data: $newTweet
-  
+  const $userInput = $("#tweet-text").val();
+  if(!$userInput) {
+    alert("Tweet too short: Type something to tweet!");
+  }
+  else if($userInput.length > 140) {
+    alert("Teweet too long: try less words!");
+  }
+  else {
+    const $newTweet = $("#submit-form").serialize();
+    $.ajax( "/tweets" ,{
+    method: "POST", 
+    data: $newTweet
+    
+    })
+    .then((result) => {
+      console.log('ajax callback called', $userInput.length);
   })
-  .then((result) => {
-    console.log('ajax callback called');
-  
-  })
-  .catch(err => {
-    console.log('ajax error caught');
-    console.log(err); 
-  });
+ }
+
 });
 
 const loadTweets = function() {
