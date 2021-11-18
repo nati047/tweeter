@@ -64,8 +64,30 @@ const renderTweets = function(tweetsArr) {
     $(".new-tweet").append($tweetArticle);
   }
 };
-
 renderTweets(data);
+
+// const $form = $(".submission-form")
+const $form = $("#submit-form");
+$form.on("submit", (event) =>{
+  event.preventDefault();
+  
+  const $newTweet = $("#submit-form").serialize();
+  $.ajax( "/tweets" ,{
+   method: "POST", 
+   data: $newTweet
+  
+  })
+  .then((result) => {
+    console.log('ajax callback called');
+  
+  })
+  .catch(err => {
+    console.log('ajax error caught');
+    console.log(err); 
+  });
+});
+
+
 });
 
 
