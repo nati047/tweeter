@@ -38,8 +38,9 @@
         <div><strong>Write&nbsp;</strong>a new tweet</div>
         <i class="fa fa-angle-double-down"></i>
       </div>
-      
     </nav>
+      
+  <div id="new-div">  
     <header class="main-header">
       <div>
         <img src="/images/profile-hex.png">
@@ -53,19 +54,21 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet" id="tweets-section">
-        <h2>Compose Tweet</h2>
+        <h2 id="compose">Compose Tweet</h2>
         <form class="submission-form" id="submit-form" action="/tweets" method="POST">
-          <label for="tweet-text"><strong>What are you humming about?</label>
-          <input name="text" id="tweet-text"></input>
-          <div class="tweet-and-counter">
-            <button type="submit" id="submit-button" >Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-          <div id="tweet-articles-container"></div>
+              <label for="tweet-text"><strong>What are you humming about?</label>
+              <input name="text" id="tweet-text"></input>
+              <div class="tweet-and-counter">
+                <button type="submit" id="submit-button" >Tweet</button>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
         </form>
+        <div id="tweet-articles-container"></div>
       </section>
-   </main>
-   
+    </main>
+      
+  </div> 
   </body>
 </html>
+
 
