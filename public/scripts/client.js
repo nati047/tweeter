@@ -13,7 +13,9 @@ $(document).ready(function () {
       </div>
       <h4 class="user-name">${tweetObj["user"].handle}</h4>`);
 
-    const $paragraph = $(`<p calss="a-tweet" >${tweetObj["content"].text}</p>`)
+    const $paragraph = $(`<p calss="a-tweet" ></p>`);
+    let textFromUser = `${tweetObj["content"].text}`;
+    $paragraph.text(textFromUser);
     const $footer = $(`<footer class="foot-text">
     <div class="icons">
       <i class="fa fa-flag" aria-hidden="true"></i>
