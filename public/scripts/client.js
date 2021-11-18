@@ -61,9 +61,28 @@ $form.on("submit", (event) =>{
     data: $newTweet
     
     })
-    .then((result) => {
-      console.log('ajax callback called', $userInput.length);
-  })
+    .then(() => { $.ajax("/tweets", {
+      method: "GET"
+    }).then(function(data) {
+      renderTweets(data);
+    })
+    $("#tweet-text").val("")
+
+  });
+
+
+  let tweetData = [ {
+    "user": {
+      "name": "Dead Pool",
+      "avatars": "/images/deadpool.png",
+      "handle": "@dead"
+    },
+    "content": {
+      "text": ""
+    },
+    "created_at": 1637029335355
+  }]
+
  }
 
 });
