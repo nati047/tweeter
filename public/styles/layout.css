@@ -21,27 +21,33 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  /* align-items: center; */
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 main {
-  /* display: flex; */
   width: 90%;
   background-color: #f4f1ec;
-  /* align-self: center; */
   position: relative;
-  /* align-items: center; */
-  /* border: tomato 2px solid; */
   margin: auto;
 }
 
-/* @media  screen and (min-width: 800px) {
+@media  (min-width: 1024px) {
   #new-div {
-    background-color: thistle;
     display: flex;
+    margin: 120px 0 0 50px;
+    align-items: stretch;
   }
-
-
-} */
+  header.main-header {
+    width: 30%;
+  }
+    
+  main.container {
+    width: 60%;
+    margin-top: 20px;
+  }
+  
+}
+ 

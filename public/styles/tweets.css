@@ -4,7 +4,6 @@ article.tweets-container {
   display: flex;
   height: 270px;
   border: 4px black solid; 
-  
   flex-direction: column;
   justify-content: space-evenly;
   padding: 1em;

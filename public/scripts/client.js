@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-
+  // create html elements for new tweets dynamicaly 
   const createTweetElement = (tweetObj) => {
     const $tweet = $(`<article class="tweets-container"></article>`);
     const $header = $(`<header class="tweet-header"></header>`);
@@ -36,7 +36,7 @@ $(document).ready(function () {
   };
 
 
-
+  // add new tweets to main page 
   const renderTweets = function (tweetsArr) {
     for (let tweet of tweetsArr) {
       let $tweetArticle = createTweetElement(tweet);
@@ -48,20 +48,30 @@ $(document).ready(function () {
 
 
   const $form = $("#submit-form");
+  // make ajax request on form submit 
   $form.on("submit", (event) => {
     event.preventDefault();
     $("#error-par").remove();           // remove previous error message p tag with id error-par
     const $userInput = $("#tweet-text").val();
     const $errorParagraph = $(`<p id="error-par"><i class="fa fa-warning"></i></p>`);
-    if (!$userInput) {   // dont forget to validate white space input 
+    let validate;
+    for (let chars of $userInput) {
+      if (chars !== " ") {
+        validate = true;
+        break;
+      }
+      else validate = false;
+    }
+
+    if (!$userInput || !validate) {   // check if user tried to submit empty form
       const errorMessage = "Type something to post!";
       $errorParagraph.append(errorMessage);
       $("#tweets-section").prepend($errorParagraph);
       $("#error-par").hide();
       $("#error-par").slideDown(1200);
     }
-    
-    else if ($userInput.length > 140) {
+
+    else if ($userInput.length > 140) {  // check if user input is not more than allowed amount
       const errorMessage = "No more than 140 charachters allowed for tweets!";
       $errorParagraph.append(errorMessage);
       $("#tweets-section").prepend($errorParagraph);
@@ -75,7 +85,7 @@ $(document).ready(function () {
         method: "POST",
         data: $newTweet
       }).then(() => {
-          $.ajax("/tweets", {method: "GET"})
+        $.ajax("/tweets", { method: "GET" })
           .then(function (data) {
             $.ajax("/tweets", {
               method: "GET"
@@ -84,14 +94,14 @@ $(document).ready(function () {
               renderTweets(data);
             })
           })
-          $("#tweet-text").val("")
-        });
-        
+        $("#tweet-text").val("")
+      });
+
     }
-     
+
 
   });
-
+  // render tweets in database 
   const loadTweets = function () {
     $.ajax("/tweets", {
       method: "GET"
@@ -99,8 +109,6 @@ $(document).ready(function () {
       renderTweets(data);
     })
   }();
-
-
 });
 
 

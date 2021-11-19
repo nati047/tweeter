@@ -2,9 +2,7 @@ section.new-tweet {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* align-items: center; */
-  /* border: lawngreen 2px solid; */
-  
+  margin-top: 100px;
 }
 
 
@@ -47,6 +45,3 @@ output.negative-val {
   width: 450px;
 }
 
-/* .compose {
-  align-self: flex-start;
-} */
