@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone. Type in whatever is on your mind
 
 !["Home page for mobile and tablets "](https://github.com/nati047/tweeter/blob/master/docs/twter%201.png?raw=true)
 !["Posted Tweets "](https://github.com/nati047/tweeter/blob/master/docs/twtr2.png?raw=true)
-!["Tweeter for desktop "](https://github.com/nati047/tweeter/blob/master/docs/twter%201.png?raw=true)
+!["Tweeter for desktop "](https://github.com/nati047/tweeter/blob/master/docs/twtr3.png?raw=true)
 
 
 
