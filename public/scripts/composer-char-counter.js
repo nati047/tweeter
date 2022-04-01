@@ -13,7 +13,7 @@ $(document).ready(function () {
       counter.addClass("negative-val");
     }
     else {
-      counter.removeClass("negative-val")
+      counter.removeClass("negative-val");
     }
   })
 
